@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Phones from './Phones';
 import Categories from './Categories'
 
-
+// App
 function App() {
 
     const [phoneItems, setPhoneItems] = useState([]);
