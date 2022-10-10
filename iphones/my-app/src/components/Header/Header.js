@@ -1,9 +1,8 @@
 import React, { Fragment, useEffect } from 'react';
-import { withRouter } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
 import { connect } from 'react-redux';
 
-import Navbar from 'react-bootstrap/Navbar';
+import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -339,4 +338,4 @@ export default connect(
     getLocalUser,
     logoutLocalUser,
   },
-)(withRouter(Header));
+)(Header);

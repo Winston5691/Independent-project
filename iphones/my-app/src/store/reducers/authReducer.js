@@ -42,7 +42,7 @@ const authReducer = (state = initialState, { type, payload }) => {
         ...state,
         localUser: payload,
       };
-    case Types.REDIRECT_AFTER_LOGIN:
+    case Types.NAVIGATE_AFTER_LOGIN:
       return {
         ...state,
       };

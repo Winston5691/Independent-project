@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const PrivateRoute = ({ auth, component: Component, ...rest }) => (
@@ -9,7 +9,7 @@ const PrivateRoute = ({ auth, component: Component, ...rest }) => (
       auth.googleUser || auth.localUser ? (
         <Component {...props} />
       ) : (
-        <Redirect
+        <Navigate
           to={{
             pathname: '/login',
             state: { from: props.location },

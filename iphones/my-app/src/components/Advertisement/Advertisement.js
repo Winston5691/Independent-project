@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import moment from 'moment';
 
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -64,10 +63,7 @@ const Advertisement = ({ name, image, description, link1, link2, time }) => {
               <Card.Link href={link2}>Link 2</Card.Link>
             </ListGroup.Item>
           </ListGroup>
-
-          <Card.Footer>
-            {moment().diff(time, 'hours') + ' hours ago'}
-          </Card.Footer>
+   
         </Card>
       </Col>
     </>

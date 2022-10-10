@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, Fragment } from 'react';
 import { connect } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroller';
-import { Redirect } from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -54,7 +54,7 @@ const Products = ({
   }
 
   //console.log(products);
-  if (error) return <Redirect to={'/error'} />;
+  if (error) return <Navigate to={'/error'} />;
   if (isLoading) return <MySpinner key={0} text={'Loading...'} />;
 
   return (

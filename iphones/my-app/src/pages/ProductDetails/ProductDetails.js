@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import { Redirect } from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 import _ from 'lodash';
 import ReactImageMagnify from 'react-image-magnify';
 
@@ -79,7 +78,7 @@ const ProductDetails = ({
       cart.cartProducts.find(p => p.product.id === product.id);
     return isAdded;
   }
-  if (error) return <Redirect to={'/error'} />;
+  if (error) return <Navigate to={'/error'} />;
   if (isLoading) return <MySpinner key={0} text={'Loading...'} />;
 
   //console.log(productDetails);
@@ -206,4 +205,4 @@ export default connect(
     showToast,
     hideToast,
   },
-)(withRouter(ProductDetails));
+)(ProductDetails);

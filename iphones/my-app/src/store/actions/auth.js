@@ -125,10 +125,10 @@ export const getLocalUser = () => {
   };
 };
 
-export const redirectAfterLogin = callback => {
+export const NavigateAfterLogin = callback => {
   if (callback) callback();
 
   return {
-    type: Types.REDIRECT_AFTER_LOGIN,
+    type: Types.NAVIGATE_AFTER_LOGIN,
   };
 };

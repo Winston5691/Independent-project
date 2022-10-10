@@ -2,10 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import {
-  BrowserRouter as Router,
+  BrowserRouter, Navigate, Router,
   Route,
-  Switch,
-  Redirect,
+  ROUTES,
 } from 'react-router-dom';
 
 import { compose, createStore, applyMiddleware } from 'redux';
@@ -49,7 +48,7 @@ const Root = () => {
       <Provider store={store}>
         <Header />
         <Container className="margin-top">
-          <Switch>
+          <ROUTES>
             <Route path="/home" exact component={Home} />
             <Route path="/products" exact component={Products} />
             <Route path="/liked" exact component={Liked} />
@@ -63,10 +62,10 @@ const Root = () => {
             <PrivateRoute path="/profile" component={Profile} />
             <Route path="/error" component={Error} />
             <Route exact path="/">
-              <Redirect to="/home" />
+              <Navigate to="/home" />
             </Route>
-            <Redirect to="/error" />
-          </Switch>
+            <Navigate to="/error" />
+          </ROUTES>
           <MyToast />
         </Container>
       </Provider>
