@@ -1,24 +1,39 @@
-import React from 'react';
-import Cart from './containers/Cart';
-import ProductList from './containers/ProductList';
+import React, { useEffect, useState } from 'react';
+import Phones from './Phones';
+import Categories from './Categories'
 
-const App = () => {
+
+function App() {
+
+    const [phoneItems, setPhoneItems] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [currentCategory, setCurrentCategory] = useState("all")
+
+    useEffect(() => {
+        fetch("http://localhost:8001/items")
+            .then((resp) => resp.json())
+            .then((data) => {
+                setPhoneItems(data);
+                setCategories(['all', ...new Set(data.map((item) => item.category))])
+            });
+    }, [])
+
+
+    const filterItems = (category) => {
+        setCurrentCategory(category)
+    };
+    const filteredItems = currentCategory === 'all' ? [...phoneItems] : phoneItems.filter((item) => item.category === currentCategory);
+
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-12">
-                    <h1>Iphone City- Where your money meets Luxury</h1>
+        <main>
+            <section className="phone section">
+                <div className="title">
+                    <h2>Available products</h2>
                 </div>
-            </div>
-            <div className="row">
-                <div className="col-md-8">
-                    <ProductList />
-                </div>
-                <div className="col-md-4">
-                    <Cart />
-                </div>
-            </div>
-        </div>
+                <Categories categories={categories} filterItems={filterItems} />
+                <Phones items={filteredItems} />
+            </section>
+        </main>
     );
 }
 
