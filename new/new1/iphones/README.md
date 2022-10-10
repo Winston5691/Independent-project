@@ -1,3 +1,13 @@
+## Libraries used
+React with Hooks, Redux, Redux Thunk
+React Bootstrap with Cosmo theme
+React Infinite Scroller, React Image Magnify, React Google Login, React Container Dimensions
+Axios, Axios Mock Adapter, Formik, Faker
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -13,6 +23,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
 
 ### `npm test`
 
